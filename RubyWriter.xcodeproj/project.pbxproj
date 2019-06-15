@@ -140,6 +140,7 @@
 				1DD9007422B4D37700A37C95 /* Frameworks */,
 				1DD9007522B4D37700A37C95 /* Resources */,
 				1DDE43FC22B4DC9A0089EEDB /* ShellScript */,
+				10DEDD4D5AAEE38A825E4EBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +159,7 @@
 				1DD9008722B4D37800A37C95 /* Sources */,
 				1DD9008822B4D37800A37C95 /* Frameworks */,
 				1DD9008922B4D37800A37C95 /* Resources */,
+				5660149F885B8B1861A376F9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,6 +230,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		10DEDD4D5AAEE38A825E4EBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubyWriter/Pods-RubyWriter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubyWriter/Pods-RubyWriter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RubyWriter/Pods-RubyWriter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1DDE43FC22B4DC9A0089EEDB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +263,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which ${PODS_ROOT}/SwiftLint/swiftlint >/dev/null; then\n\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --format\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5660149F885B8B1861A376F9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubyWriterTests/Pods-RubyWriterTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubyWriterTests/Pods-RubyWriterTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RubyWriterTests/Pods-RubyWriterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		E8B5274D432251499EE5F9CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

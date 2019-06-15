@@ -6,8 +6,14 @@ target 'RubyWriter' do
 
   pod 'SwiftLint'
 
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'RxAlamofire'
+
   target 'RubyWriterTests' do
     inherit! :search_paths
+    pod 'RxBlocking', '~> 5'
+    pod 'RxTest', '~> 5'
   end
 
 end
