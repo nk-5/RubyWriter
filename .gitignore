@@ -37,7 +37,7 @@ xcuserdata/
 Pods/
 vendor/
 .bundle
-.xcworkspace
+*.xcworkspace/
 
 # fastlane
 #
