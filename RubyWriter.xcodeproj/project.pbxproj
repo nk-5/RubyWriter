@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,9 @@
 		1DD9008022B4D37700A37C95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD9007E22B4D37700A37C95 /* Main.storyboard */; };
 		1DD9008222B4D37800A37C95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DD9008122B4D37800A37C95 /* Assets.xcassets */; };
 		1DD9008522B4D37800A37C95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD9008322B4D37800A37C95 /* LaunchScreen.storyboard */; };
-		1DD9009022B4D37800A37C95 /* RubyWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9008F22B4D37800A37C95 /* RubyWriterTests.swift */; };
+		1DDE43FF22B4EF060089EEDB /* GooAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE43FE22B4EF060089EEDB /* GooAPI.swift */; };
+		1DDE440122B542E60089EEDB /* GooAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE440022B542E60089EEDB /* GooAPITests.swift */; };
+		1DDE440422B5D1870089EEDB /* GooConfig.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1DDE440222B5D0DD0089EEDB /* GooConfig.txt */; };
 		99D6432B71B72506E471F062 /* Pods_RubyWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6067DC5430A518F07CA8E669 /* Pods_RubyWriter.framework */; };
 		A1F4F6D006A01E12FB236A12 /* Pods_RubyWriterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686FBB9463BA28BF1B430F78 /* Pods_RubyWriterTests.framework */; };
 /* End PBXBuildFile section */
@@ -36,8 +38,10 @@
 		1DD9008422B4D37800A37C95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DD9008622B4D37800A37C95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DD9008B22B4D37800A37C95 /* RubyWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RubyWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1DD9008F22B4D37800A37C95 /* RubyWriterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyWriterTests.swift; sourceTree = "<group>"; };
 		1DD9009122B4D37800A37C95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DDE43FE22B4EF060089EEDB /* GooAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooAPI.swift; sourceTree = "<group>"; };
+		1DDE440022B542E60089EEDB /* GooAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooAPITests.swift; sourceTree = "<group>"; };
+		1DDE440222B5D0DD0089EEDB /* GooConfig.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GooConfig.txt; sourceTree = "<group>"; };
 		539C3EF5B72776083DEB66D7 /* Pods-RubyWriter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubyWriter.release.xcconfig"; path = "Target Support Files/Pods-RubyWriter/Pods-RubyWriter.release.xcconfig"; sourceTree = "<group>"; };
 		6067DC5430A518F07CA8E669 /* Pods_RubyWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubyWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		686FBB9463BA28BF1B430F78 /* Pods_RubyWriterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubyWriterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +73,7 @@
 		1DD9006E22B4D37700A37C95 = {
 			isa = PBXGroup;
 			children = (
+				1DDE440222B5D0DD0089EEDB /* GooConfig.txt */,
 				1DD9007922B4D37700A37C95 /* RubyWriter */,
 				1DD9008E22B4D37800A37C95 /* RubyWriterTests */,
 				1DD9007822B4D37700A37C95 /* Products */,
@@ -89,6 +94,7 @@
 		1DD9007922B4D37700A37C95 /* RubyWriter */ = {
 			isa = PBXGroup;
 			children = (
+				1DDE43FD22B4EEDA0089EEDB /* GooAPI */,
 				1DD9007A22B4D37700A37C95 /* AppDelegate.swift */,
 				1DD9007C22B4D37700A37C95 /* ViewController.swift */,
 				1DD9007E22B4D37700A37C95 /* Main.storyboard */,
@@ -102,10 +108,18 @@
 		1DD9008E22B4D37800A37C95 /* RubyWriterTests */ = {
 			isa = PBXGroup;
 			children = (
-				1DD9008F22B4D37800A37C95 /* RubyWriterTests.swift */,
 				1DD9009122B4D37800A37C95 /* Info.plist */,
+				1DDE440022B542E60089EEDB /* GooAPITests.swift */,
 			);
 			path = RubyWriterTests;
+			sourceTree = "<group>";
+		};
+		1DDE43FD22B4EEDA0089EEDB /* GooAPI */ = {
+			isa = PBXGroup;
+			children = (
+				1DDE43FE22B4EF060089EEDB /* GooAPI.swift */,
+			);
+			path = GooAPI;
 			sourceTree = "<group>";
 		};
 		28DE8BF3CBD3969778FE3046 /* Pods */ = {
@@ -214,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDE440422B5D1870089EEDB /* GooConfig.txt in Resources */,
 				1DD9008522B4D37800A37C95 /* LaunchScreen.storyboard in Resources */,
 				1DD9008222B4D37800A37C95 /* Assets.xcassets in Resources */,
 				1DD9008022B4D37700A37C95 /* Main.storyboard in Resources */,
@@ -334,6 +349,7 @@
 			files = (
 				1DD9007D22B4D37700A37C95 /* ViewController.swift in Sources */,
 				1DD9007B22B4D37700A37C95 /* AppDelegate.swift in Sources */,
+				1DDE43FF22B4EF060089EEDB /* GooAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DD9009022B4D37800A37C95 /* RubyWriterTests.swift in Sources */,
+				1DDE440122B542E60089EEDB /* GooAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
