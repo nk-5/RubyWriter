@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,11 +12,101 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RubyWriter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG6-UL-dFH">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="RubyWriter" id="fIA-aZ-gVm"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZw-SO-fK2">
+                                <rect key="frame" x="30" y="138" width="50" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Ag5-0I-Uyc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bCG-LZ-976">
+                                <rect key="frame" x="109" y="188.5" width="196.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kanji to Hiragana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAY-UV-MAm">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AaN-8i-rSV">
+                                        <rect key="frame" x="147.5" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="5fq-aa-0CI">
+                                <rect key="frame" x="109" y="249.5" width="196.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kanji to Hiragana" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMZ-vG-gHI">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="siI-o1-aaH">
+                                        <rect key="frame" x="147.5" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: お寿司が食べたい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJf-0Z-hui">
+                                <rect key="frame" x="20" y="423" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QAi-aM-aOQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNh-cC-I4N">
+                                <rect key="frame" x="199.5" y="523" width="15" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Converted: おすしがたべたい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wof-Gl-zdY">
+                                <rect key="frame" x="20" y="593.5" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aih-5J-4nk"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5fq-aa-0CI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Pt-2F-xO1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wof-Gl-zdY" secondAttribute="trailing" constant="20" id="J4N-JM-UAD"/>
+                            <constraint firstItem="VZw-SO-fK2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="KQL-2S-SIC"/>
+                            <constraint firstItem="lG6-UL-dFH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PIN-Zx-5bA"/>
+                            <constraint firstItem="bCG-LZ-976" firstAttribute="top" secondItem="VZw-SO-fK2" secondAttribute="bottom" constant="30" id="TP7-te-AVc"/>
+                            <constraint firstItem="SJf-0Z-hui" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UsQ-EC-SWs"/>
+                            <constraint firstItem="aNh-cC-I4N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VRf-KU-0kK"/>
+                            <constraint firstItem="5fq-aa-0CI" firstAttribute="top" secondItem="bCG-LZ-976" secondAttribute="bottom" constant="30" id="W9m-9q-8hC"/>
+                            <constraint firstItem="lG6-UL-dFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WHr-Lg-FCX"/>
+                            <constraint firstItem="aNh-cC-I4N" firstAttribute="top" secondItem="SJf-0Z-hui" secondAttribute="bottom" constant="50" id="ZwQ-Fl-wcd"/>
+                            <constraint firstItem="VZw-SO-fK2" firstAttribute="top" secondItem="lG6-UL-dFH" secondAttribute="bottom" constant="50" id="aKu-ht-pSg"/>
+                            <constraint firstItem="SJf-0Z-hui" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e6h-Nd-B0O"/>
+                            <constraint firstItem="SJf-0Z-hui" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hMR-Ar-dxK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJf-0Z-hui" secondAttribute="trailing" constant="20" id="nVj-SU-PDW"/>
+                            <constraint firstItem="bCG-LZ-976" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nXC-VQ-bg7"/>
+                            <constraint firstItem="lG6-UL-dFH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="w8d-wU-JOY"/>
+                            <constraint firstItem="wof-Gl-zdY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wLh-h4-IkG"/>
+                            <constraint firstItem="wof-Gl-zdY" firstAttribute="top" secondItem="aNh-cC-I4N" secondAttribute="bottom" constant="50" id="wmd-o3-8BC"/>
+                            <constraint firstItem="wof-Gl-zdY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z5z-gq-QDW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
