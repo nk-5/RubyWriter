@@ -16,10 +16,16 @@ enum OutputType: String {
     case katakana
 }
 
-typealias Handler = (Swift.Result<String, Error>) -> Void
+typealias Handler = (Swift.Result<Response, Error>) -> Void
 
 protocol GooAPIProtocol {
     func convert(with sentence: String, _ type: OutputType, completionHandler: @escaping Handler)
+}
+
+struct Response: Codable {
+    var converted: String
+    var outputType: String
+    var requestId: String
 }
 
 struct GooAPI: GooAPIProtocol {
@@ -45,13 +51,22 @@ struct GooAPI: GooAPIProtocol {
     }
 
     func convert(with sentence: String, _ type: OutputType, completionHandler: @escaping Handler) {
-        _ = self.session.rx.json(.post, self.baseURL, parameters: [
+        _ = self.session.rx.request(.post, self.baseURL, parameters: [
             "app_id": self.appId!,
             "sentence": sentence,
             "output_type": type])
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON()
             .subscribe(onNext: {
-                print($0)
-                completionHandler(.success(""))
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                do {
+                    let res = try jsonDecoder.decode(Response.self, from: $0.data!)
+                    completionHandler(.success(res))
+                } catch {
+                    completionHandler(.failure(error))
+                }
             }, onError: { error in
                 completionHandler(.failure(error))
             })

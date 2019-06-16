@@ -14,10 +14,6 @@ class GooAPITests: XCTestCase {
     private var gooAPIClient: GooAPI = GooAPI()
 
     override func setUp() {
-        //        gooAPIClient = GooAPI()
-    }
-
-    override func tearDown() {
     }
 
     func testConvert() {
@@ -26,7 +22,7 @@ class GooAPITests: XCTestCase {
             switch result {
             case .success(let val):
                 print(val)
-                XCTAssertEqual("なかがわ", val)
+                XCTAssertEqual("なかがわ", val.converted)
             case .failure(let err):
                 print(err)
                 XCTAssertNil(err)
