@@ -19,7 +19,7 @@ enum OutputType: String {
 typealias Handler = (Swift.Result<Response, Error>) -> Void
 
 protocol GooAPIProtocol {
-    func convert(with sentence: String, _ type: OutputType, completionHandler: @escaping Handler)
+    func convert(with sentence: String, _ type: OutputType) -> Observable<Response>
 }
 
 struct Response: Codable {
@@ -28,7 +28,7 @@ struct Response: Codable {
     var requestId: String
 }
 
-struct GooAPI: GooAPIProtocol {
+class GooAPI: GooAPIProtocol {
     private var session: SessionManager
     private var baseURL: String
     private var disposeBag: DisposeBag
@@ -50,26 +50,31 @@ struct GooAPI: GooAPIProtocol {
         }
     }
 
-    func convert(with sentence: String, _ type: OutputType, completionHandler: @escaping Handler) {
-        _ = self.session.rx.request(.post, self.baseURL, parameters: [
-            "app_id": self.appId!,
-            "sentence": sentence,
-            "output_type": type])
-            .validate(statusCode: 200..<300)
-            .validate(contentType: ["application/json"])
-            .responseJSON()
-            .subscribe(onNext: {
-                let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                do {
-                    let res = try jsonDecoder.decode(Response.self, from: $0.data!)
-                    completionHandler(.success(res))
-                } catch {
-                    completionHandler(.failure(error))
-                }
-            }, onError: { error in
-                completionHandler(.failure(error))
-            })
-            .disposed(by: self.disposeBag)
+    func convert(with sentence: String, _ type: OutputType) -> Observable<Response> {
+        return Observable.create { [weak self] observer in
+            self?.session.rx.request(.post, self!.baseURL, parameters: [
+                "app_id": self!.appId!,
+                "sentence": sentence,
+                "output_type": type])
+                .validate(statusCode: 200..<300)
+                .validate(contentType: ["application/json"])
+                .responseJSON()
+                .subscribe(onNext: {
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    do {
+                        let res = try jsonDecoder.decode(Response.self, from: $0.data!)
+                        observer.onNext(res)
+                        observer.onCompleted()
+                    } catch {
+                        observer.onError(error)
+                    }
+                }, onError: { error in
+                    observer.onError(error)
+                })
+                .disposed(by: self!.disposeBag)
+
+            return Disposables.create()
+        }
     }
 }
