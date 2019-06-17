@@ -26,7 +26,7 @@ class RubyWriterViewController: UIViewController {
 
         viewModel = RubyWriterViewModel(inputText: inputText,
                                         outputText: output.rx.text,
-                                        isHiragana: toHiraganaSwitch.rx.isOn,
-                                        isKatakana: toKatakanaSwitch.rx.isOn)
+                                        hiraganaSwitch: toHiraganaSwitch.rx,
+                                        katakanaSwitch: toKatakanaSwitch.rx)
     }
 }

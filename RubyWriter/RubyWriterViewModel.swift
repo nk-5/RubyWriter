@@ -15,20 +15,33 @@ final class RubyWriterViewModel {
 
     init(inputText: Observable<String?>,
          outputText: ControlProperty<String?>,
-         isHiragana: ControlProperty<Bool>,
-         isKatakana: ControlProperty<Bool>,
+         hiraganaSwitch: Reactive<UISwitch>,
+         katakanaSwitch: Reactive<UISwitch>,
          gooAPIClient: GooAPIProtocol = GooAPI()) {
         self.gooAPIClient = gooAPIClient
 
         var outputType: OutputType = .hiragana // default is hiragana
-        isHiragana
+
+        hiraganaSwitch.isOn.changed
+            .map { !$0 }
+            .asDriver(onErrorJustReturn: false)
+            .drive(katakanaSwitch.isOn)
+            .disposed(by: disposeBag)
+
+        katakanaSwitch.isOn.changed
+            .map { !$0 }
+            .asDriver(onErrorJustReturn: false)
+            .drive(hiraganaSwitch.isOn)
+            .disposed(by: disposeBag)
+
+        hiraganaSwitch.isOn
             .filter { $0 }
             .subscribe({ _ in
                 outputType = .hiragana
             })
             .disposed(by: disposeBag)
 
-        isKatakana
+        katakanaSwitch.isOn
             .filter { $0 }
             .subscribe({ _ in
                 outputType = .katakana
