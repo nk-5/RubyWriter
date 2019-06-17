@@ -16,7 +16,9 @@ enum OutputType: String {
     case katakana
 }
 
-typealias Handler = (Swift.Result<Response, Error>) -> Void
+enum Errors: Error {
+    case requestFailed
+}
 
 protocol GooAPIProtocol {
     func convert(with sentence: String, _ type: OutputType) -> Observable<Response>
@@ -26,6 +28,8 @@ struct Response: Codable {
     var converted: String
     var outputType: String
     var requestId: String
+
+    static let empty = Response(converted: "", outputType: "hiragana", requestId: "")
 }
 
 class GooAPI: GooAPIProtocol {
@@ -62,13 +66,12 @@ class GooAPI: GooAPIProtocol {
                 .subscribe(onNext: {
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    do {
-                        let res = try jsonDecoder.decode(Response.self, from: $0.data!)
-                        observer.onNext(res)
-                        observer.onCompleted()
-                    } catch {
-                        observer.onError(error)
+                    guard let res = try? jsonDecoder.decode(Response.self, from: $0.data!) else {
+                        observer.onError(Errors.requestFailed)
+                        return
                     }
+                    observer.onNext(res)
+                    observer.onCompleted()
                 }, onError: { error in
                     observer.onError(error)
                 })

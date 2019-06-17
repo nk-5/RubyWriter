@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D8915EF22B61B05000B4488 /* RubyWriterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8915EE22B61B05000B4488 /* RubyWriterViewModel.swift */; };
 		1DD9007B22B4D37700A37C95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9007A22B4D37700A37C95 /* AppDelegate.swift */; };
 		1DD9008022B4D37700A37C95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD9007E22B4D37700A37C95 /* Main.storyboard */; };
 		1DD9008222B4D37800A37C95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DD9008122B4D37800A37C95 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D8915EE22B61B05000B4488 /* RubyWriterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyWriterViewModel.swift; sourceTree = "<group>"; };
 		1DD9007722B4D37700A37C95 /* RubyWriter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RubyWriter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD9007A22B4D37700A37C95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD9007F22B4D37700A37C95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				1DD9008322B4D37800A37C95 /* LaunchScreen.storyboard */,
 				1DD9008622B4D37800A37C95 /* Info.plist */,
 				1DDE440522B6184F0089EEDB /* RubyWriterViewController.swift */,
+				1D8915EE22B61B05000B4488 /* RubyWriterViewModel.swift */,
 			);
 			path = RubyWriter;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				1DD9007B22B4D37700A37C95 /* AppDelegate.swift in Sources */,
 				1DDE43FF22B4EF060089EEDB /* GooAPI.swift in Sources */,
 				1DDE440622B618500089EEDB /* RubyWriterViewController.swift in Sources */,
+				1D8915EF22B61B05000B4488 /* RubyWriterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
