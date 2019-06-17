@@ -10,6 +10,8 @@ target 'RubyWriter' do
   pod 'RxCocoa', '~> 5'
   pod 'RxAlamofire'
 
+  pod 'TextFieldEffects'
+
   target 'RubyWriterTests' do
     inherit! :search_paths
     pod 'RxBlocking', '~> 5'
