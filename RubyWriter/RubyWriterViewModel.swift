@@ -15,14 +15,31 @@ final class RubyWriterViewModel {
 
     init(inputText: Observable<String?>,
          outputText: ControlProperty<String?>,
+         isHiragana: ControlProperty<Bool>,
+         isKatakana: ControlProperty<Bool>,
          gooAPIClient: GooAPIProtocol = GooAPI()) {
         self.gooAPIClient = gooAPIClient
 
-        let response = inputText.asObservable()
+        var outputType: OutputType = .hiragana // default is hiragana
+        isHiragana
+            .filter { $0 }
+            .subscribe({ _ in
+                outputType = .hiragana
+            })
+            .disposed(by: disposeBag)
+
+        isKatakana
+            .filter { $0 }
+            .subscribe({ _ in
+                outputType = .katakana
+            })
+            .disposed(by: disposeBag)
+
+        let response = inputText
             .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapLatest {
-                gooAPIClient.convert(with: $0!, .hiragana).catchErrorJustReturn(Response.empty)
+                gooAPIClient.convert(with: $0!, outputType).catchErrorJustReturn(Response.empty)
             }
             .observeOn(MainScheduler.instance)
             .asDriver(onErrorJustReturn: Response.empty)

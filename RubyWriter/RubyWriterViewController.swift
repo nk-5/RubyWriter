@@ -24,6 +24,9 @@ class RubyWriterViewController: UIViewController {
             .map { self.input.text }
             .filter {($0 ?? "").count > 0}
 
-        viewModel = RubyWriterViewModel(inputText: inputText, outputText: output.rx.text)
+        viewModel = RubyWriterViewModel(inputText: inputText,
+                                        outputText: output.rx.text,
+                                        isHiragana: toHiraganaSwitch.rx.isOn,
+                                        isKatakana: toKatakanaSwitch.rx.isOn)
     }
 }
