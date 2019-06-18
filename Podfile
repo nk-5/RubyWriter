@@ -12,6 +12,11 @@ target 'RubyWriter' do
 
   pod 'TextFieldEffects'
 
+  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/MLVision'
+  pod 'Firebase/MLVisionTextModel'
+
   target 'RubyWriterTests' do
     inherit! :search_paths
     pod 'RxBlocking', '~> 5'

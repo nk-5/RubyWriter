@@ -16,6 +16,7 @@
 		1DDE440122B542E60089EEDB /* GooAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE440022B542E60089EEDB /* GooAPITests.swift */; };
 		1DDE440422B5D1870089EEDB /* GooConfig.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1DDE440222B5D0DD0089EEDB /* GooConfig.txt */; };
 		1DDE440622B618500089EEDB /* RubyWriterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE440522B6184F0089EEDB /* RubyWriterViewController.swift */; };
+		1DE891D522B903FD0044898C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DE891D422B903FD0044898C /* GoogleService-Info.plist */; };
 		99D6432B71B72506E471F062 /* Pods_RubyWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6067DC5430A518F07CA8E669 /* Pods_RubyWriter.framework */; };
 		A1F4F6D006A01E12FB236A12 /* Pods_RubyWriterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686FBB9463BA28BF1B430F78 /* Pods_RubyWriterTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		1DDE440022B542E60089EEDB /* GooAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooAPITests.swift; sourceTree = "<group>"; };
 		1DDE440222B5D0DD0089EEDB /* GooConfig.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GooConfig.txt; sourceTree = "<group>"; };
 		1DDE440522B6184F0089EEDB /* RubyWriterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubyWriterViewController.swift; sourceTree = "<group>"; };
+		1DE891D422B903FD0044898C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		539C3EF5B72776083DEB66D7 /* Pods-RubyWriter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RubyWriter.release.xcconfig"; path = "Target Support Files/Pods-RubyWriter/Pods-RubyWriter.release.xcconfig"; sourceTree = "<group>"; };
 		6067DC5430A518F07CA8E669 /* Pods_RubyWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubyWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		686FBB9463BA28BF1B430F78 /* Pods_RubyWriterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RubyWriterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 		1DD9007922B4D37700A37C95 /* RubyWriter */ = {
 			isa = PBXGroup;
 			children = (
+				1DE891D422B903FD0044898C /* GoogleService-Info.plist */,
 				1DDE43FD22B4EEDA0089EEDB /* GooAPI */,
 				1DD9007A22B4D37700A37C95 /* AppDelegate.swift */,
 				1DD9007E22B4D37700A37C95 /* Main.storyboard */,
@@ -158,6 +161,7 @@
 				1DD9007522B4D37700A37C95 /* Resources */,
 				1DDE43FC22B4DC9A0089EEDB /* ShellScript */,
 				10DEDD4D5AAEE38A825E4EBE /* [CP] Embed Pods Frameworks */,
+				ED3BCD4785CE7C3C94B3F386 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +237,7 @@
 			files = (
 				1DDE440422B5D1870089EEDB /* GooConfig.txt in Resources */,
 				1DD9008522B4D37800A37C95 /* LaunchScreen.storyboard in Resources */,
+				1DE891D522B903FD0044898C /* GoogleService-Info.plist in Resources */,
 				1DD9008222B4D37800A37C95 /* Assets.xcassets in Resources */,
 				1DD9008022B4D37700A37C95 /* Main.storyboard in Resources */,
 			);
@@ -319,6 +324,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED3BCD4785CE7C3C94B3F386 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubyWriter/Pods-RubyWriter-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RubyWriter/Pods-RubyWriter-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RubyWriter/Pods-RubyWriter-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F75BDC0BCE150647A5FE63DF /* [CP] Check Pods Manifest.lock */ = {
