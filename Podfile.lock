@@ -109,6 +109,7 @@ PODS:
   - RxSwift (5.0.0)
   - RxTest (5.0.0):
     - RxSwift (~> 5)
+  - SwiftIconFont (3.0.0)
   - SwiftLint (0.33.0)
   - TextFieldEffects (1.5.1)
 
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
   - RxTest (~> 5)
+  - SwiftIconFont
   - SwiftLint
   - TextFieldEffects
 
@@ -149,6 +151,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - RxTest
+    - SwiftIconFont
     - SwiftLint
     - TextFieldEffects
 
@@ -175,9 +178,10 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   RxTest: 4349afe98f564e0a9bc19063368904622d17d49a
+  SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
   SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: d87140469e89fee5b3e58fdb9244e156d3dc945c
+PODFILE CHECKSUM: c3c3a14fd9b6084a43ded6d789b43569dd50a88f
 
 COCOAPODS: 1.7.2

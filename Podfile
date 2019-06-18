@@ -11,6 +11,7 @@ target 'RubyWriter' do
   pod 'RxAlamofire'
 
   pod 'TextFieldEffects'
+  pod 'SwiftIconFont'
 
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'

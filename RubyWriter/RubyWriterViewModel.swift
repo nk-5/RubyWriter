@@ -63,4 +63,8 @@ final class RubyWriterViewModel {
             .drive(outputText)
             .disposed(by: disposeBag)
     }
+
+    func loadImageFromCamera() {
+
+    }
 }
