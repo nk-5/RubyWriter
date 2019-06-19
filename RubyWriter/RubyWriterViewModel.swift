@@ -8,12 +8,10 @@
 
 import RxSwift
 import RxCocoa
-import Firebase
 
 final class RubyWriterViewModel {
     private let disposeBag = DisposeBag()
     private let gooAPIClient: GooAPIProtocol
-    private let textRecognizer: VisionTextRecognizer
 
     init(inputText: Observable<String?>,
          outputText: ControlProperty<String?>,
@@ -21,9 +19,6 @@ final class RubyWriterViewModel {
          katakanaSwitch: Reactive<UISwitch>,
          gooAPIClient: GooAPIProtocol = GooAPI()) {
         self.gooAPIClient = gooAPIClient
-        let vision = Vision.vision()
-        textRecognizer = vision.onDeviceTextRecognizer()
-
         var outputType: OutputType = .hiragana // default is hiragana
 
         hiraganaSwitch.isOn.changed
@@ -66,21 +61,5 @@ final class RubyWriterViewModel {
             }
             .drive(outputText)
             .disposed(by: disposeBag)
-    }
-
-    func recognizeTextFrom(original: UIImage, completionHandler: @escaping () -> Void) {
-        let image = VisionImage(image: original)
-        textRecognizer.process(image, completion: { result, error in
-            guard error == nil, let result = result else {
-                // TODO: error message
-                print("text recognizer error")
-                completionHandler()
-                return
-            }
-
-            print("recognized!!")
-            print(result.text)
-            completionHandler()
-        })
     }
 }

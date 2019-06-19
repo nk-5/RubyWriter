@@ -27,3 +27,8 @@ MVVM
 ```
 $ make
 ```
+
+## Future support
+
+* input text from camera!!
+  * use [Firebase MLKit Recognize Text](https://firebase.google.com/docs/ml-kit/ios/recognize-text)
