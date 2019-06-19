@@ -52,7 +52,6 @@ class RubyWriterViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .camera
-        //        imagePickerController.allowsEditing = true
         self.present(imagePickerController, animated: true, completion: nil)
     }
 
@@ -60,7 +59,17 @@ class RubyWriterViewController: UIViewController, UIImagePickerControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        print("did finish")
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info:[UIImagePickerController.InfoKey: Any]) {
+        guard let image = info[.originalImage] as? UIImage else {
+            // TODO: error message
+            self.dismiss(animated: true, completion: nil)
+            print("not get image")
+            return
+        }
+
+        viewModel?.recognizeTextFrom(original: image, completionHandler: {
+            self.dismiss(animated: true, completion: nil)
+        })
     }
 }
