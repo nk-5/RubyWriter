@@ -67,7 +67,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Converted: おすしがたべたい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wof-Gl-zdY" customClass="HoshiTextField" customModule="TextFieldEffects">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Converted: おすしがたべたい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wof-Gl-zdY" customClass="HoshiTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="20" y="618.5" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aih-5J-4nk"/>

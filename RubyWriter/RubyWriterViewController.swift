@@ -10,7 +10,11 @@ import UIKit
 import RxSwift
 import SwiftIconFont
 
-class RubyWriterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RubyWriterViewController: UIViewController,
+    UITextFieldDelegate,
+    UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
+
     @IBOutlet weak var toHiraganaSwitch: UISwitch!
     @IBOutlet weak var toKatakanaSwitch: UISwitch!
     @IBOutlet weak var input: UITextField!
@@ -23,6 +27,7 @@ class RubyWriterViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         camera.setIcon(from: .fontAwesome, code: "camera", textColor: .black, backgroundColor: .clear, size: nil)
+        input.delegate = self
 
         let inputText = input.rx.controlEvent(.editingChanged)
             .map { self.input.text }
@@ -32,6 +37,17 @@ class RubyWriterViewController: UIViewController, UIImagePickerControllerDelegat
                                         outputText: output.rx.text,
                                         hiraganaSwitch: toHiraganaSwitch.rx,
                                         katakanaSwitch: toKatakanaSwitch.rx)
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.input.resignFirstResponder() {
+            self.input.resignFirstResponder()
+        }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     @IBAction func didTouchCamera(_ sender: Any) {
@@ -60,7 +76,7 @@ class RubyWriterViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info:[UIImagePickerController.InfoKey: Any]) {
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.originalImage] as? UIImage else {
             // TODO: error message
             self.dismiss(animated: true, completion: nil)
