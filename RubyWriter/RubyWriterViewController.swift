@@ -20,6 +20,7 @@ UINavigationControllerDelegate {
     @IBOutlet weak var input: UITextField!
     @IBOutlet weak var output: UITextField!
     @IBOutlet weak var camera: UIImageView!
+    @IBOutlet weak var convertArrow: UIImageView!
 
     private var viewModel: RubyWriterViewModel?
     private let disposeBag = DisposeBag()
@@ -27,6 +28,7 @@ UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         camera.setIcon(from: .fontAwesome, code: "camera", textColor: .black, backgroundColor: .clear, size: nil)
+        convertArrow.setIcon(from: .octicon, code: "arrow-down")
         input.delegate = self
 
         let inputText = input.rx.controlEvent(.editingChanged)
@@ -40,8 +42,8 @@ UINavigationControllerDelegate {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if self.input.resignFirstResponder() {
-            self.input.resignFirstResponder()
+        if input.resignFirstResponder() {
+            input.resignFirstResponder()
         }
     }
 
