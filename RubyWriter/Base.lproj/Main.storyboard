@@ -23,10 +23,10 @@
                                     <navigationItem title="RubyWriter" id="fIA-aZ-gVm"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZw-SO-fK2">
-                                <rect key="frame" x="30" y="138" width="50" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Convert Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZw-SO-fK2">
+                                <rect key="frame" x="30" y="138" width="200" height="20.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Ag5-0I-Uyc"/>
+                                    <constraint firstAttribute="width" constant="200" id="Ag5-0I-Uyc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -61,7 +61,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: お寿司が食べたい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJf-0Z-hui" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="20" y="398" width="374" height="100"/>
+                                <rect key="frame" x="20" y="300.5" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="QAi-aM-aOQ"/>
                                 </constraints>
@@ -84,7 +84,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Converted: おすしがたべたい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wof-Gl-zdY" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="20" y="588" width="374" height="100"/>
+                                <rect key="frame" x="20" y="465.5" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="aih-5J-4nk"/>
                                 </constraints>
@@ -107,7 +107,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9LF-Fr-7Ao">
-                                <rect key="frame" x="182" y="528" width="50" height="50"/>
+                                <rect key="frame" x="182" y="415.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KZ4-jX-FTX"/>
                                     <constraint firstAttribute="width" constant="50" id="xBA-Qh-uLt"/>
@@ -117,12 +117,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5fq-aa-0CI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Pt-2F-xO1"/>
+                            <constraint firstItem="SJf-0Z-hui" firstAttribute="top" secondItem="5fq-aa-0CI" secondAttribute="bottom" constant="20" id="7MH-1Z-gr0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wof-Gl-zdY" secondAttribute="trailing" constant="20" id="J4N-JM-UAD"/>
                             <constraint firstItem="VZw-SO-fK2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="KQL-2S-SIC"/>
-                            <constraint firstItem="9LF-Fr-7Ao" firstAttribute="top" secondItem="SJf-0Z-hui" secondAttribute="bottom" constant="30" id="Knr-Vy-owP"/>
+                            <constraint firstItem="9LF-Fr-7Ao" firstAttribute="top" secondItem="SJf-0Z-hui" secondAttribute="bottom" constant="15" id="Knr-Vy-owP"/>
                             <constraint firstItem="lG6-UL-dFH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PIN-Zx-5bA"/>
                             <constraint firstItem="bCG-LZ-976" firstAttribute="top" secondItem="VZw-SO-fK2" secondAttribute="bottom" constant="30" id="TP7-te-AVc"/>
-                            <constraint firstItem="SJf-0Z-hui" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UsQ-EC-SWs"/>
                             <constraint firstItem="5fq-aa-0CI" firstAttribute="top" secondItem="bCG-LZ-976" secondAttribute="bottom" constant="30" id="W9m-9q-8hC"/>
                             <constraint firstItem="lG6-UL-dFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WHr-Lg-FCX"/>
                             <constraint firstItem="VZw-SO-fK2" firstAttribute="top" secondItem="lG6-UL-dFH" secondAttribute="bottom" constant="50" id="aKu-ht-pSg"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJf-0Z-hui" secondAttribute="trailing" constant="20" id="nVj-SU-PDW"/>
                             <constraint firstItem="bCG-LZ-976" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nXC-VQ-bg7"/>
                             <constraint firstItem="9LF-Fr-7Ao" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="owQ-d8-ILR"/>
-                            <constraint firstItem="wof-Gl-zdY" firstAttribute="top" secondItem="9LF-Fr-7Ao" secondAttribute="bottom" constant="10" id="qdG-mD-VyK"/>
+                            <constraint firstItem="wof-Gl-zdY" firstAttribute="top" secondItem="9LF-Fr-7Ao" secondAttribute="bottom" id="qdG-mD-VyK"/>
                             <constraint firstItem="lG6-UL-dFH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="w8d-wU-JOY"/>
                             <constraint firstItem="wof-Gl-zdY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wLh-h4-IkG"/>
                             <constraint firstItem="wof-Gl-zdY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z5z-gq-QDW"/>
