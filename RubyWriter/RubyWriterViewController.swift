@@ -28,7 +28,6 @@ class RubyWriterViewController: UIViewController, UITextFieldDelegate {
 
         let inputText = input.rx.controlEvent(.editingChanged)
             .map { self.input.text }
-            .filter {($0 ?? "").count > 0}
 
         viewModel = RubyWriterViewModel(inputText: inputText,
                                         outputText: output.rx.text,

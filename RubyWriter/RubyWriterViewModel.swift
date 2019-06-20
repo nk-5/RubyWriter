@@ -49,6 +49,7 @@ final class RubyWriterViewModel {
 
         let response = inputText
             .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .filter {($0 ?? "").count > 0}
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapLatest {
                 gooAPIClient.convert(with: $0!, outputType).catchErrorJustReturn(Response.empty)
@@ -59,6 +60,14 @@ final class RubyWriterViewModel {
         response.map {
             $0.converted
             }
+            .drive(outputText)
+            .disposed(by: disposeBag)
+
+        // set empty for output text if input text changed empty
+        inputText
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .filter {($0 ?? "").count == 0}
+            .asDriver(onErrorJustReturn: "error")
             .drive(outputText)
             .disposed(by: disposeBag)
     }
