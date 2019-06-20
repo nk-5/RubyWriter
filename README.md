@@ -2,7 +2,8 @@
 
 Ruby is not [ruby](https://www.ruby-lang.org/ja/).
 This is converter, kanji to hiragana.
-For example..
+
+## Example
 
 input: `中川慶悟` -> output: `なかがわけいご`
 
@@ -25,7 +26,7 @@ MVVM
 ## Installation
 
 ```
-$ make
+$ make GOO_APP_ID=set-goo-app-id
 ```
 
 ## Future support
