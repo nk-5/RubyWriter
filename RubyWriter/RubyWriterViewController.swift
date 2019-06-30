@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import SwiftIconFont
+import NVActivityIndicatorView
 
 class RubyWriterViewController: UIViewController, UITextFieldDelegate {
 
@@ -17,6 +18,7 @@ class RubyWriterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var input: UITextField!
     @IBOutlet weak var output: UITextField!
     @IBOutlet weak var convertArrow: UIImageView!
+    @IBOutlet weak var loading: NVActivityIndicatorView!
 
     private var viewModel: RubyWriterViewModel?
     private let disposeBag = DisposeBag()
@@ -33,6 +35,24 @@ class RubyWriterViewController: UIViewController, UITextFieldDelegate {
                                         outputText: output.rx.text,
                                         hiraganaSwitch: toHiraganaSwitch.rx,
                                         katakanaSwitch: toKatakanaSwitch.rx)
+
+        viewModel?.loading
+            .asDriver(onErrorJustReturn: false)
+            .map { isLoading in
+                if isLoading {
+                    self.loading.startAnimating()
+                } else {
+                    self.loading.stopAnimating()
+                }
+                return !isLoading
+            }
+            .drive(loading.rx.isHidden)
+            .disposed(by: disposeBag)
+
+        viewModel?.loading
+            .asDriver(onErrorJustReturn: false)
+            .drive(convertArrow.rx.isHidden)
+            .disposed(by: disposeBag)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -7,6 +7,9 @@ PODS:
     - URITemplate (~> 3.0)
   - Mockingjay/XCTest (3.0.0-alpha.1):
     - Mockingjay/Core
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
   - RxAlamofire (5.0.0):
     - RxAlamofire/Core (= 5.0.0)
   - RxAlamofire/Core (5.0.0):
@@ -29,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - Mockingjay (= 3.0.0-alpha.1)
+  - NVActivityIndicatorView
   - RxAlamofire
   - RxBlocking (~> 5)
   - RxCocoa (~> 5)
@@ -42,6 +46,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Mockingjay
+    - NVActivityIndicatorView
     - RxAlamofire
     - RxBlocking
     - RxCocoa
@@ -56,6 +61,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Mockingjay: 0f7c5aa49c7f1b95621cee3c79b557141f5a225c
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   RxAlamofire: e7875a012aff55345672d0f70a2a9cd6aeb0f211
   RxBlocking: c67185d26498ea3cbe3e121917c3c16739e43123
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
@@ -67,6 +73,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
   URITemplate: 58e0d47f967006c5d59888af5356c4a8ed3b197d
 
-PODFILE CHECKSUM: 3cf9861bdc5e68dce0878245be9a29d54d001b51
+PODFILE CHECKSUM: dc750fc4df55ae6d37b2eda4436c35a311628d80
 
 COCOAPODS: 1.7.2

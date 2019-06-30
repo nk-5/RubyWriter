@@ -12,6 +12,8 @@ import RxCocoa
 final class RubyWriterViewModel {
     private let disposeBag = DisposeBag()
     private let gooAPIClient: GooAPIProtocol
+    private let loadingSubject = PublishSubject<Bool>()
+    var loading: Observable<Bool> { return loadingSubject }
 
     init(inputText: Observable<String?>,
          outputText: ControlProperty<String?>,
@@ -52,15 +54,27 @@ final class RubyWriterViewModel {
             .filter {($0 ?? "").count > 0}
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapLatest {
-                gooAPIClient.convert(with: $0!, outputType).catchErrorJustReturn(Response.empty)
+                gooAPIClient
+                    .convert(with: $0!, outputType)
+                    .catchErrorJustReturn(Response.empty)
             }
             .observeOn(MainScheduler.instance)
             .asDriver(onErrorJustReturn: Response.empty)
 
-        response.map {
-            $0.converted
+        response
+            .map {
+                self.loadingSubject.onNext(false)
+                return $0.converted
             }
             .drive(outputText)
+            .disposed(by: disposeBag)
+
+        inputText
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .map {($0 ?? "").count > 0}
+            .subscribe(onNext: {
+                self.loadingSubject.onNext($0)
+            })
             .disposed(by: disposeBag)
 
         // set empty for output text if input text changed empty

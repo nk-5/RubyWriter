@@ -113,10 +113,28 @@
                                     <constraint firstAttribute="width" constant="50" id="xBA-Qh-uLt"/>
                                 </constraints>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-Rl-fJ9" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="182" y="415.5" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.97310595560000002" blue="0.61050595819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2L3-Gs-teb"/>
+                                    <constraint firstAttribute="width" constant="50" id="rX9-YM-yyf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballRotateChase"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.50800059500000005" green="0.78424192039999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5fq-aa-0CI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Pt-2F-xO1"/>
+                            <constraint firstItem="SYS-Rl-fJ9" firstAttribute="top" secondItem="SJf-0Z-hui" secondAttribute="bottom" constant="15" id="5wT-GF-ttW"/>
                             <constraint firstItem="SJf-0Z-hui" firstAttribute="top" secondItem="5fq-aa-0CI" secondAttribute="bottom" constant="20" id="7MH-1Z-gr0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wof-Gl-zdY" secondAttribute="trailing" constant="20" id="J4N-JM-UAD"/>
                             <constraint firstItem="VZw-SO-fK2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="KQL-2S-SIC"/>
@@ -127,6 +145,7 @@
                             <constraint firstItem="lG6-UL-dFH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WHr-Lg-FCX"/>
                             <constraint firstItem="VZw-SO-fK2" firstAttribute="top" secondItem="lG6-UL-dFH" secondAttribute="bottom" constant="50" id="aKu-ht-pSg"/>
                             <constraint firstItem="SJf-0Z-hui" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e6h-Nd-B0O"/>
+                            <constraint firstItem="SYS-Rl-fJ9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="geg-AU-KC1"/>
                             <constraint firstItem="SJf-0Z-hui" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hMR-Ar-dxK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJf-0Z-hui" secondAttribute="trailing" constant="20" id="nVj-SU-PDW"/>
                             <constraint firstItem="bCG-LZ-976" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nXC-VQ-bg7"/>
@@ -141,6 +160,7 @@
                     <connections>
                         <outlet property="convertArrow" destination="9LF-Fr-7Ao" id="xkc-Ve-RA9"/>
                         <outlet property="input" destination="SJf-0Z-hui" id="Akf-YC-L8v"/>
+                        <outlet property="loading" destination="SYS-Rl-fJ9" id="tzM-7m-QF1"/>
                         <outlet property="output" destination="wof-Gl-zdY" id="7MY-8R-WL8"/>
                         <outlet property="toHiraganaSwitch" destination="AaN-8i-rSV" id="0lv-HZ-mzN"/>
                         <outlet property="toKatakanaSwitch" destination="siI-o1-aaH" id="3Mq-PF-krT"/>

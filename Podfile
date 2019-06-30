@@ -12,6 +12,7 @@ target 'RubyWriter' do
 
   pod 'TextFieldEffects'
   pod 'SwiftIconFont'
+  pod 'NVActivityIndicatorView'
 
   target 'RubyWriterTests' do
     inherit! :search_paths

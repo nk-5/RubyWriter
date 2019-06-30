@@ -42,13 +42,14 @@ class GooAPI: GooAPIProtocol {
         self.session = SessionManager.default
         self.baseURL = "https://labs.goo.ne.jp/api/hiragana"
         self.disposeBag = DisposeBag()
-        guard let path = Bundle.main.path(forResource: "GooConfig", ofType: "txt") else {
-            precondition(false, "goo config file not found and need goo app id. try make prepare GOO_APP_ID=[app_id]")
-        }
 
         if let id = appId {
             self.appId = id
             return
+        }
+
+        guard let path = Bundle.main.path(forResource: "GooConfig", ofType: "txt") else {
+            precondition(false, "goo config file not found and need goo app id. try make prepare GOO_APP_ID=[app_id]")
         }
 
         do {
