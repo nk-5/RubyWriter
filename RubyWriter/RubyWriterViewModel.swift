@@ -15,8 +15,10 @@ final class RubyWriterViewModel {
     private let loadingSubject = PublishSubject<Bool>()
     var loading: Observable<Bool> { return loadingSubject }
 
+    private let outputSubject = PublishSubject<String>()
+    var output: Observable<String> { return outputSubject }
+
     init(inputText: Observable<String?>,
-         outputText: ControlProperty<String?>,
          hiraganaSwitch: Reactive<UISwitch>,
          katakanaSwitch: Reactive<UISwitch>,
          gooAPIClient: GooAPIProtocol = GooAPI()) {
@@ -59,30 +61,25 @@ final class RubyWriterViewModel {
                     .catchErrorJustReturn(Response.empty)
             }
             .observeOn(MainScheduler.instance)
-            .asDriver(onErrorJustReturn: Response.empty)
 
         response
-            .map {
+            .subscribe { res in
                 self.loadingSubject.onNext(false)
-                return $0.converted
+                guard let res = res.element else { return }
+                self.outputSubject.onNext(res.converted)
             }
-            .drive(outputText)
             .disposed(by: disposeBag)
 
         inputText
             .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .map {($0 ?? "").count > 0}
             .subscribe(onNext: {
+                if !$0 {
+                    // set empty for output text if input text changed empty
+                    self.outputSubject.onNext("")
+                }
                 self.loadingSubject.onNext($0)
             })
-            .disposed(by: disposeBag)
-
-        // set empty for output text if input text changed empty
-        inputText
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-            .filter {($0 ?? "").count == 0}
-            .asDriver(onErrorJustReturn: "error")
-            .drive(outputText)
             .disposed(by: disposeBag)
     }
 }

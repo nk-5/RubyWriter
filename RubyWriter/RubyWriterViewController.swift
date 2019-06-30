@@ -32,9 +32,13 @@ class RubyWriterViewController: UIViewController, UITextFieldDelegate {
             .map { self.input.text }
 
         viewModel = RubyWriterViewModel(inputText: inputText,
-                                        outputText: output.rx.text,
                                         hiraganaSwitch: toHiraganaSwitch.rx,
                                         katakanaSwitch: toKatakanaSwitch.rx)
+
+        viewModel?.output
+            .asDriver(onErrorJustReturn: "error")
+            .drive(output.rx.text)
+            .disposed(by: disposeBag)
 
         viewModel?.loading
             .asDriver(onErrorJustReturn: false)
