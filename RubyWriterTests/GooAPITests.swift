@@ -7,36 +7,32 @@
 //
 
 import XCTest
+import RxTest
+import RxBlocking
+import Mockingjay
+
 @testable import RubyWriter
 
 class GooAPITests: XCTestCase {
 
-    private var gooAPIClient: GooAPI = GooAPI()
+    private var gooAPIClient: GooAPI = GooAPI(appId: "test")
 
     override func setUp() {
     }
 
     func testConvertHiragana() {
-        let expectation = self.expectation(description: #function)
-        _ = gooAPIClient.convert(with: "中川", .hiragana)
-            .subscribe(onNext: { res in
-                XCTAssertEqual("なかがわ", res.converted)
-                expectation.fulfill()
-            }, onError: { err in
-                XCTAssertNil(err)
-            })
-        waitForExpectations(timeout: 3)
+        let json = "{\"converted\": \"なかがわ\", \"output_type\": \"hiragana\", \"request_id\": \"hoge\"}"
+        stub(http(.post, uri: "https://labs.goo.ne.jp/api/hiragana"), jsonData(json.data(using: .utf8)!))
+
+        let res = try? gooAPIClient.convert(with: "中川", .hiragana).toBlocking().single()
+        XCTAssertEqual(res?.converted, "なかがわ")
     }
 
     func testConvertKatakana() {
-        let expectation = self.expectation(description: #function)
-        _ = gooAPIClient.convert(with: "中川", .katakana)
-            .subscribe(onNext: { res in
-                XCTAssertEqual("ナカガワ", res.converted)
-                expectation.fulfill()
-            }, onError: { err in
-                XCTAssertNil(err)
-            })
-        waitForExpectations(timeout: 3)
+        let json = "{\"converted\": \"ナカガワ\", \"output_type\": \"katakana\", \"request_id\": \"hoge\"}"
+        stub(http(.post, uri: "https://labs.goo.ne.jp/api/hiragana"), jsonData(json.data(using: .utf8)!))
+
+        let res = try? gooAPIClient.convert(with: "中川", .katakana).toBlocking().single()
+        XCTAssertEqual(res?.converted, "ナカガワ")
     }
 }

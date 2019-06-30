@@ -17,6 +17,7 @@ target 'RubyWriter' do
     inherit! :search_paths
     pod 'RxBlocking', '~> 5'
     pod 'RxTest', '~> 5'
+    pod 'Mockingjay', '3.0.0-alpha.1'
   end
 
 end
